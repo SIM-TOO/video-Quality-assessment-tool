@@ -72,14 +72,10 @@ class OTTQualityAnalyzer:
         """메인 메뉴 출력"""
         print("사용 가능한 기능:")
         print("1. 비디오 메타데이터 분석")
-        print("2. 품질 메트릭 비교 분석 (두 비디오)")
-        print("3. 단일 비디오 품질 분석")
-        print("4. DCI/OTT 표준 준수 검사")
-        print("5. 종합 품질 분석 (모든 기능)")
-        print("6. 배치 처리 (폴더 내 모든 비디오)")
-        print("7. HTML 보고서 생성")
-        print("8. 디노이즈 품질 평가")
-        print("9. 색복원 품질 평가 (흑백→컬러)")
+        print("2. DCI/OTT 표준 준수 검사")
+        print("3. 업스케일링 품질 평가")
+        print("4. 디노이즈 품질 평가")
+        print("5. 색복원 품질 평가 (흑백→컬러)")
         print("0. 종료")
         print()
 
@@ -161,80 +157,9 @@ class OTTQualityAnalyzer:
         except Exception as e:
             print(f"분석 중 오류 발생: {e}")
 
-    def compare_quality_metrics(self):
-        """2. 품질 메트릭 비교 분석"""
-        print("\n2. 품질 메트릭 비교 분석")
-        print("-" * 50)
-
-        ref_file = self.get_file_input("참조 비디오 파일 경로: ")
-        if not ref_file:
-            return
-
-        dist_file = self.get_file_input("비교할 비디오 파일 경로: ")
-        if not dist_file:
-            return
-
-        # 옵션 설정
-        try:
-            frames_input = input("분석할 프레임 수 (기본값: 20): ").strip()
-            num_frames = int(frames_input) if frames_input else 20
-        except:
-            num_frames = 20
-
-        letterbox_input = input("레터박스 자동 제거 (y/n, 기본값: y): ").strip().lower()
-        remove_letterbox = letterbox_input not in ["n", "no", "ㄴ"]
-
-        try:
-            print("품질 메트릭 계산 중...")
-            result = self.quality_calculator.calculate_quality_metrics_comparison(
-                ref_file, dist_file, num_frames, remove_letterbox
-            )
-
-            # 결과 출력
-            self.quality_calculator.print_results(result)
-
-            # 결과 저장
-            base_name = f"{Path(ref_file).stem}_vs_{Path(dist_file).stem}"
-            self.save_results(result, base_name, "quality_comparison")
-
-        except Exception as e:
-            print(f"품질 분석 중 오류 발생: {e}")
-
-    def analyze_single_quality(self):
-        """3. 단일 비디오 품질 분석"""
-        print("\n3. 단일 비디오 품질 분석")
-        print("-" * 50)
-
-        file_path = self.get_file_input("분석할 비디오 파일 경로: ")
-        if not file_path:
-            return
-
-        # 옵션 설정
-        try:
-            frames_input = input("분석할 프레임 수 (기본값: 20): ").strip()
-            num_frames = int(frames_input) if frames_input else 20
-        except:
-            num_frames = 20
-
-        try:
-            print("품질 분석 중...")
-            result = self.quality_calculator.calculate_single_video_metrics(
-                file_path, num_frames
-            )
-
-            # 결과 출력
-            self.quality_calculator.print_results(result)
-
-            # 결과 저장
-            base_name = Path(file_path).stem
-            self.save_results(result, base_name, "quality_analysis")
-
-        except Exception as e:
-            print(f"품질 분석 중 오류 발생: {e}")
-
     def check_standards_compliance(self):
-        """4. DCI/OTT 표준 준수 검사"""
-        print("\n4. DCI/OTT 표준 준수 검사")
+        """2. DCI/OTT 표준 준수 검사"""
+        print("\n2. DCI/OTT 표준 준수 검사")
         print("-" * 50)
 
         file_path = self.get_file_input("검사할 비디오 파일 경로: ")
@@ -260,11 +185,11 @@ class OTTQualityAnalyzer:
             print(f"표준 검사 중 오류 발생: {e}")
 
     def comprehensive_analysis(self):
-        """5. 종합 품질 분석"""
-        print("\n5. 종합 품질 분석 (모든 기능)")
+        """3. 업스케일링 품질 평가 """
+        print("\n3. 업스케일링 품질 평가")
         print("-" * 50)
 
-        file_path = self.get_file_input("분석할 비디오 파일 경로: ")
+        file_path = self.get_file_input("분석할 업스케일링 비디오 파일 경로: ")
         if not file_path:
             return
 
@@ -275,7 +200,7 @@ class OTTQualityAnalyzer:
         comparison_file = None
 
         if compare_option in ["y", "yes", "ㅇ"]:
-            comparison_file = self.get_file_input("비교할 비디오 파일 경로: ")
+            comparison_file = self.get_file_input("비교할 원본 비디오 파일 경로: ")
 
         # 옵션 설정
         try:
@@ -412,157 +337,9 @@ class OTTQualityAnalyzer:
         except Exception as e:
             print(f"종합 분석 중 오류 발생: {e}")
 
-    def batch_processing(self):
-        """6. 배치 처리"""
-        print("\n6. 배치 처리 (폴더 내 모든 비디오)")
-        print("-" * 50)
-
-        folder_path = input("비디오 파일이 있는 폴더 경로: ").strip().strip("\"'")
-
-        if not folder_path or not os.path.exists(folder_path):
-            print("폴더를 찾을 수 없습니다.")
-            return
-
-        # 비디오 파일 찾기
-        video_files = []
-        for ext in self.supported_formats:
-            video_files.extend(Path(folder_path).glob(f"*{ext}"))
-
-        if not video_files:
-            print(f"폴더에서 지원되는 비디오 파일을 찾을 수 없습니다.")
-            print(f"지원 형식: {', '.join(self.supported_formats)}")
-            return
-
-        print(f"발견된 비디오 파일: {len(video_files)}개")
-        for i, file in enumerate(video_files[:5], 1):
-            print(f"  {i}. {file.name}")
-        if len(video_files) > 5:
-            print(f"  ... 및 {len(video_files) - 5}개 더")
-
-        proceed = input("배치 처리를 시작하시겠습니까? (y/n): ").strip().lower()
-        if proceed not in ["y", "yes", "ㅇ"]:
-            return
-
-        # 처리 옵션 선택
-        print("\n처리 옵션:")
-        print("1. 메타데이터 분석만")
-        print("2. DCI/OTT 표준 검사")
-        print("3. 품질 분석 (단일)")
-
-        try:
-            option = int(input("선택 (1-3): ").strip())
-        except:
-            option = 1
-
-        batch_results = {
-            "batch_info": {
-                "folder_path": folder_path,
-                "total_files": len(video_files),
-                "processing_option": option,
-                "start_time": datetime.datetime.now().isoformat(),
-            },
-            "results": [],
-        }
-
-        # 파일별 처리
-        for i, video_file in enumerate(video_files, 1):
-            print(f"\n처리 중 ({i}/{len(video_files)}): {video_file.name}")
-
-            try:
-                file_result = {
-                    "file_name": video_file.name,
-                    "file_path": str(video_file),
-                    "processing_status": "success",
-                }
-
-                if option == 1:  # 메타데이터만
-                    result = self.metadata_analyzer.analyze_complete(str(video_file))
-                    file_result["metadata"] = result
-
-                elif option == 2:  # 표준 검사
-                    metadata = self.metadata_analyzer.analyze_complete(str(video_file))
-                    metadata["analysis_timestamp"] = datetime.datetime.now().isoformat()
-                    result = self.standards_checker.run_comprehensive_check(
-                        str(video_file), metadata
-                    )
-                    file_result["standards_check"] = result
-
-                elif option == 3:  # 품질 분석
-                    result = self.quality_calculator.calculate_single_video_metrics(
-                        str(video_file)
-                    )
-                    file_result["quality_analysis"] = result
-
-                batch_results["results"].append(file_result)
-                print(f"✓ 완료")
-
-            except Exception as e:
-                print(f"✗ 오류: {e}")
-                file_result["processing_status"] = "error"
-                file_result["error"] = str(e)
-                batch_results["results"].append(file_result)
-
-        batch_results["batch_info"]["end_time"] = datetime.datetime.now().isoformat()
-
-        # 배치 결과 저장
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = f"batch_processing_{timestamp}.json"
-
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(batch_results, f, ensure_ascii=False, indent=2)
-
-        # 요약 출력
-        success_count = sum(
-            1 for r in batch_results["results"] if r["processing_status"] == "success"
-        )
-        error_count = len(batch_results["results"]) - success_count
-
-        print(f"\n배치 처리 완료!")
-        print(f"성공: {success_count}개, 실패: {error_count}개")
-        print(f"결과 저장: {output_file}")
-
-    def generate_html_report(self):
-        """7. HTML 보고서 생성"""
-        print("\n7. HTML 보고서 생성")
-        print("-" * 50)
-
-        # JSON 파일 선택
-        json_file = input("분석 결과 JSON 파일 경로: ").strip().strip("\"'")
-
-        if not json_file or not os.path.exists(json_file):
-            print("JSON 파일을 찾을 수 없습니다.")
-            return
-
-        try:
-            # JSON 파일 읽기
-            with open(json_file, "r", encoding="utf-8") as f:
-                analysis_data = json.load(f)
-
-            # HTML 보고서 생성
-            print("HTML 보고서 생성 중...")
-            base_name = Path(json_file).stem
-            html_file = self.html_generator.generate_comprehensive_report(
-                analysis_data, f"{base_name}_report.html"
-            )
-
-            print(f"HTML 보고서 생성 완료: {html_file}")
-
-            # 브라우저에서 열기 옵션
-            open_browser = (
-                input("브라우저에서 바로 열어보시겠습니까? (y/n): ").strip().lower()
-            )
-            if open_browser in ["y", "yes", "ㅇ"]:
-                import webbrowser
-
-                webbrowser.open(f"file://{os.path.abspath(html_file)}")
-                print("브라우저에서 보고서를 열었습니다.")
-
-        except Exception as e:
-            print(f"HTML 보고서 생성 중 오류: {e}")
-
     def analyze_denoise_quality(self):
-        """8. 디노이즈 품질 평가"""
-        print("\n8. 디노이즈 품질 평가")
+        """4. 디노이즈 품질 평가"""
+        print("\n4. 디노이즈 품질 평가")
         print("-" * 50)
 
         original_file = self.get_file_input("원본 (노이즈 있는) 비디오 파일 경로: ")
@@ -600,8 +377,8 @@ class OTTQualityAnalyzer:
             print(f"디노이즈 품질 평가 중 오류 발생: {e}")
 
     def analyze_colorization_quality(self):
-        """9. 색복원 품질 평가"""
-        print("\n9. 색복원 품질 평가 (흑백→컬러)")
+        """5. 색복원 품질 평가"""
+        print("\n5. 색복원 품질 평가 (흑백→컬러)")
         print("-" * 50)
 
         reference_file = self.get_file_input("원본 컬러 비디오 파일 경로: ")
@@ -654,20 +431,12 @@ class OTTQualityAnalyzer:
                 elif choice == "1":
                     self.analyze_metadata()
                 elif choice == "2":
-                    self.compare_quality_metrics()
-                elif choice == "3":
-                    self.analyze_single_quality()
-                elif choice == "4":
                     self.check_standards_compliance()
-                elif choice == "5":
+                elif choice == "3":
                     self.comprehensive_analysis()
-                elif choice == "6":
-                    self.batch_processing()
-                elif choice == "7":
-                    self.generate_html_report()
-                elif choice == "8":
+                elif choice == "4":
                     self.analyze_denoise_quality()
-                elif choice == "9":
+                elif choice == "5":
                     self.analyze_colorization_quality()
                 else:
                     print("잘못된 선택입니다. 0-9 사이의 숫자를 입력하세요.")
