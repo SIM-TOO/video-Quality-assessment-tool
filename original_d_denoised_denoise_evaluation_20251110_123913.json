@@ -1,0 +1,307 @@
+{
+  "original_video": "video/original_d.mp4",
+  "denoised_video": "video/vika_d.mp4",
+  "frames_analyzed": 20,
+  "letterbox_handling": false,
+  "evaluation_type": "denoising",
+  "psnr": {
+    "mean_psnr": 35.70652542016076,
+    "min_psnr": 34.35606164309849,
+    "max_psnr": 37.34295136651065,
+    "std_psnr": 0.6919274128661996,
+    "frame_psnr_values": [
+      34.35606164309849,
+      35.85268949592172,
+      35.362782256483804,
+      35.878696299043014,
+      35.46628773970528,
+      37.30355983373605,
+      37.34295136651065,
+      35.7010007654281,
+      35.08849677007187,
+      35.399868612858235,
+      35.97740184633836,
+      35.56785684131334,
+      35.66018447834256,
+      36.04006412025183,
+      35.05490711881774,
+      34.98153778312122,
+      35.26417486519215,
+      36.343530238634145,
+      35.57146111358951,
+      35.91699521475714
+    ],
+    "letterbox_removed": false
+  },
+  "ssim": {
+    "mean_ssim": 0.9479826298245986,
+    "min_ssim": 0.9148944269736756,
+    "max_ssim": 0.9653153739850838,
+    "std_ssim": 0.011997336409065562,
+    "frame_ssim_values": [
+      0.9372348853459276,
+      0.9577005216694754,
+      0.9504999169962547,
+      0.9358590444493663,
+      0.9148944269736756,
+      0.9451167612461729,
+      0.9481855812077945,
+      0.9575360461307921,
+      0.9463246988688818,
+      0.9502503505754164,
+      0.9495999971286978,
+      0.9551158449355036,
+      0.9577711148951987,
+      0.9635999902709395,
+      0.9318103838494242,
+      0.9333773847623916,
+      0.9467015338263245,
+      0.9653153739850838,
+      0.9553634810606656,
+      0.9573952583139823
+    ],
+    "letterbox_removed": false
+  },
+  "noise_reduction": {
+    "mean_original_noise": 34.92629979208357,
+    "mean_denoised_noise": 40.355766882139946,
+    "mean_reduction_ratio": -16.580121663776733,
+    "frame_values": [
+      {
+        "original_noise_level": 32.579731973840275,
+        "denoised_noise_level": 44.18399830654359,
+        "reduction_ratio": -35.618053402099505
+      },
+      {
+        "original_noise_level": 31.649529557808133,
+        "denoised_noise_level": 37.11241076232111,
+        "reduction_ratio": -17.260544724795924
+      },
+      {
+        "original_noise_level": 32.734569608204616,
+        "denoised_noise_level": 39.5798624255428,
+        "reduction_ratio": -20.911510061896383
+      },
+      {
+        "original_noise_level": 41.1527612152532,
+        "denoised_noise_level": 44.79104336120778,
+        "reduction_ratio": -8.840918661385116
+      },
+      {
+        "original_noise_level": 40.081989843514876,
+        "denoised_noise_level": 47.12738388404351,
+        "reduction_ratio": -17.57745578010158
+      },
+      {
+        "original_noise_level": 19.415074278151284,
+        "denoised_noise_level": 27.326401771898823,
+        "reduction_ratio": -40.74837613498361
+      },
+      {
+        "original_noise_level": 23.01472100037314,
+        "denoised_noise_level": 27.93144919021781,
+        "reduction_ratio": -21.363405577521245
+      },
+      {
+        "original_noise_level": 33.949142980690354,
+        "denoised_noise_level": 38.42947294960463,
+        "reduction_ratio": -13.197181358783064
+      },
+      {
+        "original_noise_level": 33.80050934920735,
+        "denoised_noise_level": 43.02101103213886,
+        "reduction_ratio": -27.27917969421882
+      },
+      {
+        "original_noise_level": 34.337351825734636,
+        "denoised_noise_level": 41.325507918210576,
+        "reduction_ratio": -20.351470689823444
+      },
+      {
+        "original_noise_level": 35.50510927235746,
+        "denoised_noise_level": 39.21899936974588,
+        "reduction_ratio": -10.460156787293357
+      },
+      {
+        "original_noise_level": 31.23207630188962,
+        "denoised_noise_level": 34.16729852623457,
+        "reduction_ratio": -9.398101477381953
+      },
+      {
+        "original_noise_level": 39.14125921673901,
+        "denoised_noise_level": 43.56944635598396,
+        "reduction_ratio": -11.313348696127825
+      },
+      {
+        "original_noise_level": 41.70012393162742,
+        "denoised_noise_level": 45.27748374569125,
+        "reduction_ratio": -8.578775017382114
+      },
+      {
+        "original_noise_level": 36.72596631135957,
+        "denoised_noise_level": 43.46405107566042,
+        "reduction_ratio": -18.346923011299282
+      },
+      {
+        "original_noise_level": 37.737591994312126,
+        "denoised_noise_level": 44.06131020636296,
+        "reduction_ratio": -16.757079288482306
+      },
+      {
+        "original_noise_level": 36.683509096377676,
+        "denoised_noise_level": 42.26779841323691,
+        "reduction_ratio": -15.22288748927418
+      },
+      {
+        "original_noise_level": 40.06028856793643,
+        "denoised_noise_level": 41.41744363077552,
+        "reduction_ratio": -3.387781544652513
+      },
+      {
+        "original_noise_level": 39.72284046333457,
+        "denoised_noise_level": 43.447303210558985,
+        "reduction_ratio": -9.37612392211028
+      },
+      {
+        "original_noise_level": 37.30184905295959,
+        "denoised_noise_level": 39.39566150681888,
+        "reduction_ratio": -5.6131599559222565
+      }
+    ]
+  },
+  "detail_preservation": {
+    "mean_preservation_ratio": 110.2148363041438,
+    "std_preservation_ratio": 5.11246555489159,
+    "frame_values": [
+      {
+        "original_edge_strength": 51.28716666237383,
+        "denoised_edge_strength": 57.15008556693221,
+        "preservation_ratio": 111.43155156757692
+      },
+      {
+        "original_edge_strength": 50.11278435137906,
+        "denoised_edge_strength": 52.93694024086794,
+        "preservation_ratio": 105.63559962999973
+      },
+      {
+        "original_edge_strength": 50.91839105312686,
+        "denoised_edge_strength": 54.84936588866703,
+        "preservation_ratio": 107.72014738533018
+      },
+      {
+        "original_edge_strength": 37.32549180983828,
+        "denoised_edge_strength": 41.901713372363254,
+        "preservation_ratio": 112.26031149392321
+      },
+      {
+        "original_edge_strength": 35.953006880057345,
+        "denoised_edge_strength": 41.955970724731834,
+        "preservation_ratio": 116.69669484029792
+      },
+      {
+        "original_edge_strength": 15.475707163850833,
+        "denoised_edge_strength": 19.48919009248726,
+        "preservation_ratio": 125.9340842143316
+      },
+      {
+        "original_edge_strength": 20.331756917630013,
+        "denoised_edge_strength": 24.09827453034651,
+        "preservation_ratio": 118.52529335254096
+      },
+      {
+        "original_edge_strength": 51.884322421130655,
+        "denoised_edge_strength": 54.26283878791604,
+        "preservation_ratio": 104.58426795570274
+      },
+      {
+        "original_edge_strength": 52.68514533534976,
+        "denoised_edge_strength": 56.57015095783299,
+        "preservation_ratio": 107.37400570455775
+      },
+      {
+        "original_edge_strength": 52.90024851257947,
+        "denoised_edge_strength": 56.58442049091955,
+        "preservation_ratio": 106.96437555952878
+      },
+      {
+        "original_edge_strength": 36.91432788631556,
+        "denoised_edge_strength": 40.89621619205775,
+        "preservation_ratio": 110.78683680224421
+      },
+      {
+        "original_edge_strength": 36.1001277101985,
+        "denoised_edge_strength": 39.62524027980067,
+        "preservation_ratio": 109.76482021864511
+      },
+      {
+        "original_edge_strength": 45.454083201381074,
+        "denoised_edge_strength": 48.32524665225789,
+        "preservation_ratio": 106.31662382927476
+      },
+      {
+        "original_edge_strength": 45.438091521213,
+        "denoised_edge_strength": 48.29109154365181,
+        "preservation_ratio": 106.27887291680564
+      },
+      {
+        "original_edge_strength": 39.18308649783632,
+        "denoised_edge_strength": 44.67114896297992,
+        "preservation_ratio": 114.00620256254352
+      },
+      {
+        "original_edge_strength": 43.38963819898452,
+        "denoised_edge_strength": 47.99994930707744,
+        "preservation_ratio": 110.62537347499897
+      },
+      {
+        "original_edge_strength": 43.6415931516911,
+        "denoised_edge_strength": 46.97515386355341,
+        "preservation_ratio": 107.63849454412767
+      },
+      {
+        "original_edge_strength": 40.66181970650564,
+        "denoised_edge_strength": 43.072449888176,
+        "preservation_ratio": 105.9284857369152
+      },
+      {
+        "original_edge_strength": 42.306334273214944,
+        "denoised_edge_strength": 45.63759877825253,
+        "preservation_ratio": 107.8741506733347
+      },
+      {
+        "original_edge_strength": 36.89341795667361,
+        "denoised_edge_strength": 39.8266415549586,
+        "preservation_ratio": 107.95053362019662
+      }
+    ]
+  },
+  "blur_amount": {
+    "mean_blur_score": 231.08726525763086,
+    "std_blur_score": 52.86435854296968,
+    "min_blur_score": 109.93506449202432,
+    "max_blur_score": 306.25522271803754,
+    "frame_values": [
+      290.52632486672934,
+      195.40305961083308,
+      224.94483382406233,
+      266.51249786113095,
+      306.25522271803754,
+      110.3655925286187,
+      109.93506449202432,
+      212.39153970335855,
+      272.2491957023514,
+      249.02478810881502,
+      210.746812367079,
+      159.66728278791638,
+      261.24079161299596,
+      279.53062360737067,
+      263.7669920684391,
+      267.1511756154271,
+      249.11182495879066,
+      228.92957626529267,
+      254.97510402424072,
+      209.01700242910388
+    ],
+    "note": "높은 점수는 선명함을, 낮은 점수는 블러를 의미합니다"
+  }
+}

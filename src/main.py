@@ -78,6 +78,8 @@ class OTTQualityAnalyzer:
         print("5. 종합 품질 분석 (모든 기능)")
         print("6. 배치 처리 (폴더 내 모든 비디오)")
         print("7. HTML 보고서 생성")
+        print("8. 디노이즈 품질 평가")
+        print("9. 색복원 품질 평가 (흑백→컬러)")
         print("0. 종료")
         print()
 
@@ -558,6 +560,84 @@ class OTTQualityAnalyzer:
         except Exception as e:
             print(f"HTML 보고서 생성 중 오류: {e}")
 
+    def analyze_denoise_quality(self):
+        """8. 디노이즈 품질 평가"""
+        print("\n8. 디노이즈 품질 평가")
+        print("-" * 50)
+
+        original_file = self.get_file_input("원본 (노이즈 있는) 비디오 파일 경로: ")
+        if not original_file:
+            return
+
+        denoised_file = self.get_file_input("디노이즈된 비디오 파일 경로: ")
+        if not denoised_file:
+            return
+
+        # 옵션 설정
+        try:
+            frames_input = input("분석할 프레임 수 (기본값: 20): ").strip()
+            num_frames = int(frames_input) if frames_input else 20
+        except:
+            num_frames = 20
+
+        letterbox_input = input("레터박스 자동 제거 (y/n, 기본값: y): ").strip().lower()
+        remove_letterbox = letterbox_input not in ["n", "no", "ㄴ"]
+
+        try:
+            print("디노이즈 품질 메트릭 계산 중...")
+            result = self.quality_calculator.calculate_denoise_metrics(
+                original_file, denoised_file, num_frames, remove_letterbox
+            )
+
+            # 결과 출력
+            self.quality_calculator.print_results(result)
+
+            # 결과 저장
+            base_name = f"{Path(original_file).stem}_denoised"
+            self.save_results(result, base_name, "denoise_evaluation")
+
+        except Exception as e:
+            print(f"디노이즈 품질 평가 중 오류 발생: {e}")
+
+    def analyze_colorization_quality(self):
+        """9. 색복원 품질 평가"""
+        print("\n9. 색복원 품질 평가 (흑백→컬러)")
+        print("-" * 50)
+
+        reference_file = self.get_file_input("원본 컬러 비디오 파일 경로: ")
+        if not reference_file:
+            return
+
+        colorized_file = self.get_file_input("색복원된 비디오 파일 경로: ")
+        if not colorized_file:
+            return
+
+        # 옵션 설정
+        try:
+            frames_input = input("분석할 프레임 수 (기본값: 20): ").strip()
+            num_frames = int(frames_input) if frames_input else 20
+        except:
+            num_frames = 20
+
+        letterbox_input = input("레터박스 자동 제거 (y/n, 기본값: y): ").strip().lower()
+        remove_letterbox = letterbox_input not in ["n", "no", "ㄴ"]
+
+        try:
+            print("색복원 품질 메트릭 계산 중...")
+            result = self.quality_calculator.calculate_colorization_metrics(
+                reference_file, colorized_file, num_frames, remove_letterbox
+            )
+
+            # 결과 출력
+            self.quality_calculator.print_results(result)
+
+            # 결과 저장
+            base_name = f"{Path(colorized_file).stem}_colorization"
+            self.save_results(result, base_name, "colorization_evaluation")
+
+        except Exception as e:
+            print(f"색복원 품질 평가 중 오류 발생: {e}")
+
     def run(self):
         """메인 실행 함수"""
         self.print_banner()
@@ -566,7 +646,7 @@ class OTTQualityAnalyzer:
             self.print_menu()
 
             try:
-                choice = input("기능을 선택하세요 (0-7): ").strip()
+                choice = input("기능을 선택하세요 (0-9): ").strip()
 
                 if choice == "0":
                     print("프로그램을 종료합니다.")
@@ -585,8 +665,12 @@ class OTTQualityAnalyzer:
                     self.batch_processing()
                 elif choice == "7":
                     self.generate_html_report()
+                elif choice == "8":
+                    self.analyze_denoise_quality()
+                elif choice == "9":
+                    self.analyze_colorization_quality()
                 else:
-                    print("잘못된 선택입니다. 0-7 사이의 숫자를 입력하세요.")
+                    print("잘못된 선택입니다. 0-9 사이의 숫자를 입력하세요.")
 
                 input("\n계속하려면 Enter를 누르세요...")
                 print("\n" + "=" * 80 + "\n")

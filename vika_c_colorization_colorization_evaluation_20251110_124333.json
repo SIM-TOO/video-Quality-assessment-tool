@@ -1,0 +1,358 @@
+{
+  "reference_video": "video/original_b.mp4",
+  "colorized_video": "video/vika_c.mp4",
+  "frames_analyzed": 20,
+  "letterbox_handling": false,
+  "evaluation_type": "colorization",
+  "psnr": {
+    "mean_psnr": 22.16236897240819,
+    "min_psnr": 21.32159218071576,
+    "max_psnr": 23.783364300343578,
+    "std_psnr": 0.5674882795419677,
+    "frame_psnr_values": [
+      23.783364300343578,
+      22.51057301006362,
+      21.731186562650038,
+      21.752791309755214,
+      21.32159218071576,
+      21.582512663827856,
+      22.620245536977677,
+      22.26799696064571,
+      22.243459438068438,
+      21.87936859853419,
+      22.62707127773345,
+      21.77467835273317,
+      21.881691737836455,
+      21.53247235820338,
+      21.966692412125212,
+      23.01194437802745,
+      22.531538767142166,
+      22.456326452721044,
+      21.95772235176527,
+      21.814150798294172
+    ],
+    "letterbox_removed": false
+  },
+  "ssim": {
+    "mean_ssim": 0.986967204342338,
+    "min_ssim": 0.983638289054262,
+    "max_ssim": 0.9882504096525584,
+    "std_ssim": 0.001095539727624544,
+    "frame_ssim_values": [
+      0.9864377519602634,
+      0.983638289054262,
+      0.9845826821136769,
+      0.9866538243808548,
+      0.987851852024042,
+      0.9876785977373632,
+      0.9871101019982644,
+      0.9870039883650864,
+      0.9870605947081567,
+      0.9880406297689632,
+      0.9882504096525584,
+      0.9863315765305847,
+      0.9864570595057162,
+      0.9873376902331296,
+      0.9874371068264679,
+      0.9875752312116272,
+      0.9876989791001298,
+      0.987003874760121,
+      0.9876917773629114,
+      0.9875020695525821
+    ],
+    "letterbox_removed": false
+  },
+  "color_accuracy": {
+    "mean_delta_e": 12.896803903579713,
+    "std_delta_e": 0.8280831131781276,
+    "mean_l_diff": 1.4563365936279298,
+    "mean_a_diff": 5.715726590156555,
+    "mean_b_diff": 10.818229579925537,
+    "frame_values": [
+      {
+        "delta_e": 10.522500038146973,
+        "l_difference": 1.213453769683838,
+        "a_difference": 5.633681774139404,
+        "b_difference": 8.182262420654297
+      },
+      {
+        "delta_e": 12.149650573730469,
+        "l_difference": 1.5638346672058105,
+        "a_difference": 5.807392597198486,
+        "b_difference": 9.848291397094727
+      },
+      {
+        "delta_e": 13.519082069396973,
+        "l_difference": 1.5304948091506958,
+        "a_difference": 6.020729064941406,
+        "b_difference": 11.336709022521973
+      },
+      {
+        "delta_e": 13.553996086120605,
+        "l_difference": 1.4925488233566284,
+        "a_difference": 5.983245372772217,
+        "b_difference": 11.414231300354004
+      },
+      {
+        "delta_e": 14.101993560791016,
+        "l_difference": 1.438636064529419,
+        "a_difference": 6.463759899139404,
+        "b_difference": 11.821533203125
+      },
+      {
+        "delta_e": 13.796276092529297,
+        "l_difference": 1.4535318613052368,
+        "a_difference": 6.067245960235596,
+        "b_difference": 11.674208641052246
+      },
+      {
+        "delta_e": 12.321466445922852,
+        "l_difference": 1.4645377397537231,
+        "a_difference": 5.151311874389648,
+        "b_difference": 10.481210708618164
+      },
+      {
+        "delta_e": 12.833748817443848,
+        "l_difference": 1.4811979532241821,
+        "a_difference": 5.57492208480835,
+        "b_difference": 10.847271919250488
+      },
+      {
+        "delta_e": 12.860039710998535,
+        "l_difference": 1.4622753858566284,
+        "a_difference": 5.560898303985596,
+        "b_difference": 10.857988357543945
+      },
+      {
+        "delta_e": 13.328052520751953,
+        "l_difference": 1.4364876747131348,
+        "a_difference": 5.789947986602783,
+        "b_difference": 11.28728199005127
+      },
+      {
+        "delta_e": 12.115913391113281,
+        "l_difference": 1.4086686372756958,
+        "a_difference": 5.246702671051025,
+        "b_difference": 10.223626136779785
+      },
+      {
+        "delta_e": 13.567745208740234,
+        "l_difference": 1.5084179639816284,
+        "a_difference": 5.905299663543701,
+        "b_difference": 11.471988677978516
+      },
+      {
+        "delta_e": 13.272563934326172,
+        "l_difference": 1.4760286808013916,
+        "a_difference": 5.8102312088012695,
+        "b_difference": 11.195653915405273
+      },
+      {
+        "delta_e": 13.745610237121582,
+        "l_difference": 1.44572913646698,
+        "a_difference": 6.059287071228027,
+        "b_difference": 11.596917152404785
+      },
+      {
+        "delta_e": 13.145917892456055,
+        "l_difference": 1.4530858993530273,
+        "a_difference": 5.735052108764648,
+        "b_difference": 11.081796646118164
+      },
+      {
+        "delta_e": 11.788311958312988,
+        "l_difference": 1.4499088525772095,
+        "a_difference": 4.963128089904785,
+        "b_difference": 9.96703815460205
+      },
+      {
+        "delta_e": 12.33453369140625,
+        "l_difference": 1.449619174003601,
+        "a_difference": 5.394003868103027,
+        "b_difference": 10.33309555053711
+      },
+      {
+        "delta_e": 12.512481689453125,
+        "l_difference": 1.47063148021698,
+        "a_difference": 5.545016288757324,
+        "b_difference": 10.457659721374512
+      },
+      {
+        "delta_e": 13.151164054870605,
+        "l_difference": 1.4643718004226685,
+        "a_difference": 5.805446147918701,
+        "b_difference": 11.045673370361328
+      },
+      {
+        "delta_e": 13.315030097961426,
+        "l_difference": 1.4632714986801147,
+        "a_difference": 5.797229766845703,
+        "b_difference": 11.240153312683105
+      }
+    ],
+    "note": "낮은 Delta E 값은 더 정확한 색상을 의미합니다 (0=완벽, <2.3=지각 불가)"
+  },
+  "saturation_metrics": {
+    "mean_ref_saturation": 31.283234212239584,
+    "mean_col_saturation": 104.26722249348958,
+    "mean_saturation_diff": 87.45308799743653,
+    "std_saturation_diff": 3.345826675755308,
+    "frame_values": [
+      {
+        "reference_saturation": 29.149537760416667,
+        "colorized_saturation": 113.95722981770834,
+        "saturation_difference": 94.7557144165039
+      },
+      {
+        "reference_saturation": 23.998600260416666,
+        "colorized_saturation": 102.30334635416666,
+        "saturation_difference": 87.0447006225586
+      },
+      {
+        "reference_saturation": 24.562379557291667,
+        "colorized_saturation": 107.6987109375,
+        "saturation_difference": 91.15254211425781
+      },
+      {
+        "reference_saturation": 28.503180338541668,
+        "colorized_saturation": 106.095498046875,
+        "saturation_difference": 90.19278717041016
+      },
+      {
+        "reference_saturation": 29.831412760416665,
+        "colorized_saturation": 109.486806640625,
+        "saturation_difference": 92.96955871582031
+      },
+      {
+        "reference_saturation": 30.33966796875,
+        "colorized_saturation": 107.25243815104167,
+        "saturation_difference": 91.092041015625
+      },
+      {
+        "reference_saturation": 30.962102864583333,
+        "colorized_saturation": 100.8686328125,
+        "saturation_difference": 84.80636596679688
+      },
+      {
+        "reference_saturation": 31.591031901041667,
+        "colorized_saturation": 103.42654947916667,
+        "saturation_difference": 86.70442962646484
+      },
+      {
+        "reference_saturation": 31.567724609375,
+        "colorized_saturation": 103.31353190104167,
+        "saturation_difference": 86.24716186523438
+      },
+      {
+        "reference_saturation": 32.47767903645833,
+        "colorized_saturation": 104.44278645833333,
+        "saturation_difference": 87.397705078125
+      },
+      {
+        "reference_saturation": 31.996484375,
+        "colorized_saturation": 98.53514973958333,
+        "saturation_difference": 82.20221710205078
+      },
+      {
+        "reference_saturation": 32.57189453125,
+        "colorized_saturation": 105.94825520833334,
+        "saturation_difference": 88.99594116210938
+      },
+      {
+        "reference_saturation": 32.72093098958333,
+        "colorized_saturation": 104.47099609375,
+        "saturation_difference": 87.22784423828125
+      },
+      {
+        "reference_saturation": 32.799222005208335,
+        "colorized_saturation": 105.66098958333333,
+        "saturation_difference": 88.84895324707031
+      },
+      {
+        "reference_saturation": 33.827731119791665,
+        "colorized_saturation": 104.75737955729167,
+        "saturation_difference": 87.6532974243164
+      },
+      {
+        "reference_saturation": 33.903483072916664,
+        "colorized_saturation": 96.49060221354166,
+        "saturation_difference": 81.45909118652344
+      },
+      {
+        "reference_saturation": 32.77427408854167,
+        "colorized_saturation": 100.140205078125,
+        "saturation_difference": 83.44496154785156
+      },
+      {
+        "reference_saturation": 34.201647135416664,
+        "colorized_saturation": 102.31341145833333,
+        "saturation_difference": 84.41365051269531
+      },
+      {
+        "reference_saturation": 33.892591145833336,
+        "colorized_saturation": 103.96538411458333,
+        "saturation_difference": 85.85517883300781
+      },
+      {
+        "reference_saturation": 33.993108723958336,
+        "colorized_saturation": 104.21654622395833,
+        "saturation_difference": 86.59761810302734
+      }
+    ]
+  },
+  "hue_difference": {
+    "mean_hue_difference": 19.10380153656006,
+    "std_hue_difference": 1.6866319264997804,
+    "min_hue_difference": 13.0673828125,
+    "max_hue_difference": 20.71402931213379,
+    "frame_values": [
+      13.0673828125,
+      16.067630767822266,
+      18.586393356323242,
+      18.731992721557617,
+      18.462129592895508,
+      19.61260986328125,
+      19.470739364624023,
+      19.352617263793945,
+      19.520280838012695,
+      20.17864990234375,
+      19.118473052978516,
+      19.965171813964844,
+      19.707523345947266,
+      19.271142959594727,
+      19.905292510986328,
+      20.71402931213379,
+      19.79254913330078,
+      19.874073028564453,
+      20.066112518310547,
+      20.611236572265625
+    ],
+    "note": "낮은 값은 더 정확한 색조를 의미합니다 (0-180 범위)"
+  },
+  "color_consistency": {
+    "mean_temporal_difference": 6.5469073496366805,
+    "std_temporal_difference": 3.458630951385488,
+    "frame_to_frame_differences": [
+      20.714696884155273,
+      7.909471035003662,
+      5.938855171203613,
+      6.177143573760986,
+      7.077216148376465,
+      5.229145050048828,
+      5.7267866134643555,
+      4.943385601043701,
+      4.940145969390869,
+      6.167172908782959,
+      5.019782543182373,
+      4.313323497772217,
+      6.23866605758667,
+      5.250921249389648,
+      6.4231276512146,
+      7.030967712402344,
+      4.980839252471924,
+      5.669531345367432,
+      4.640061378479004
+    ],
+    "note": "낮은 값은 프레임 간 색상이 일관적임을 의미합니다"
+  }
+}
