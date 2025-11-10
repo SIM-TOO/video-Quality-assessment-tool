@@ -184,7 +184,7 @@ class OTTQualityAnalyzer:
         except Exception as e:
             print(f"표준 검사 중 오류 발생: {e}")
 
-    def comprehensive_analysis(self):
+    def analyze_upscaling_quality(self):
         """3. 업스케일링 품질 평가 """
         print("\n3. 업스케일링 품질 평가")
         print("-" * 50)
@@ -433,7 +433,7 @@ class OTTQualityAnalyzer:
                 elif choice == "2":
                     self.check_standards_compliance()
                 elif choice == "3":
-                    self.comprehensive_analysis()
+                    self.analyze_upscaling_quality()
                 elif choice == "4":
                     self.analyze_denoise_quality()
                 elif choice == "5":
